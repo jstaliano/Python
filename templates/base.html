@@ -1,10 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>{% block title %} {% endblock title %}</title>
 </head>
 <body>
-$END$
+    <header>
+        <h3><a class="btn btn-success" href="/">Blog - Home</a></h3>
+        <hr />
+        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-secondary">
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent" aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-start" id="navbar3SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-3">
+            <a class="nav-link text-light" href="/">
+              <b>Início</b>
+            </a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link text-light" href="{% url 'post_new' %}">
+              <b>+Nova Postagem</b>
+            </a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link text-light" href="#">
+              <b>-</b>
+            </a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link text-light" href="#">
+              <b>-</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                       {% block content %} {% endblock content %}
+
+                       {%block detail_left%} {% endblock detail_left %}
+
+                       {%block detail_right%} {% endblock detail_right %}
+
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>

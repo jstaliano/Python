@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Blog - Detalhe {% endblock title %}
+         <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="com-md-6">
+                       {% block content %}
+                            <a class="btn btn-warning text-white" href="{% url 'post_edit' post.pk %}">Editar Postagem</a>
+                            <a href="/" class='btn btn-dark'>VOLTAR</a>
+
+                            <h2 class="bg-info text text-center text-light">{{ object.titulo }}</h2>
+                            <p>{{ object.conteudo }} </p>
+                        {% endblock content %}
+                    </div>
+                    <div class="col-md-3">
+                       {%block detail_left%}
+                            <h2 class="bg-info text text-center text-light">Postado por: {{ object.autor }}</h2>
+                            <ul>
+                                <li> Criado - {{object.criado}} </li>
+                                <li> Publicado em -{{object.publicado}} </li>
+                                <li> Status - {{ object.status }} </li>
+                            </ul>
+
+                        {% endblock detail_left %}
+                    </div>
+                    <div class="col-md-3">
+                        {%block detail_right%}
+                            <h4 class="bg-info text text-center text-light">Categoria: {{ object.slug }}</h4>
+                        {% endblock detail_right %}
+                    </div>
+
+                  </div>
+
+                </div>
+            </div>
